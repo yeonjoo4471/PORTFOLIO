@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import '../styles/about.css'
-import aboutCharacter from '../assets/images/about/profile/about-character.png'
+import aboutCharacter from '../assets/images/about/profile/about-character-cutout-expanded.png'
 
 import photoshopIcon from '../assets/icons/skills/photoshop.png'
 import illustratorIcon from '../assets/icons/skills/illustrator.png'
