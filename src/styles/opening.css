@@ -77,6 +77,101 @@
   background: linear-gradient(90deg, #f8fafc55, transparent)
 }
 
+.op-start-screen{
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background: 
+    radial-gradient(
+      circle at 75% 20%,
+      #ddf2fc 0,
+      transparent 38%
+    ),
+    #f8fafc;
+}
+
+.op-start-screen::before{
+  content: '';
+  position: absolute;
+  inset: 7%;
+  border: 1px solid rgba(83, 100, 113, .2);
+  pointer-events: none;
+}
+
+.op-start-content{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+}
+
+.op-start-label{
+  text-align: center;
+  color: #536471;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.op-start{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 8px 4px 12px;
+  border: 0;
+  border-bottom: 1px solid #172A3A;
+  background: transparent;
+  color: #172A3A;
+  font: 400 clamp(64px, 10vw, 150px) / .9
+    'Cormorant Garamond', serif;
+  letter-spacing: -.04em;
+  cursor: pointer;
+}
+
+.op-start > span:last-child{
+  color: #67B7E8;
+  font: 30px 'Pretendard', sans-serif;
+  transition: transform .3s ease;
+}
+
+.op-start:hover > span:last-child{
+  transform: translate(7px, -7px);
+}
+
+.op-start:focus-visible{
+  outline: 2px solid #3B91D1;
+  outline-offset: 10px;
+}
+
+.op-start:disabled{
+  cursor: wait;
+  opacity: .65;
+}
+
+.op-start-caption{
+  color: #536471;
+  font-size: 9px;
+  letter-spacing: .2em;
+}
+
+.op-progress span{
+  animation-play-state: paused;
+}
+
+.op-start-screen{
+  will-change: opacity;
+}
+
+.opening.is-started .op-start-screen{
+  pointer-events: none;
+}
+
+.opening.is-started .op-progress span{
+  animation-play-state: running;
+}
+
 .op-skip{
   position: absolute;
   right: 4.5%;

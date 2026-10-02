@@ -33,11 +33,58 @@ function ProjectFrame({ project, index, className = '' }) {
   </figure>
 }
 
-export default function Opening() {
+export default function Opening({ onStart, onRevealComplete, }) {
   const root = useRef(null)
   const timeline = useRef(null)
   const heading = useRef(null)
+  const startScreen = useRef(null)
   const [finished, setFinished] = useState(false)
+  const [started, setStarted] = useState(false)
+  const [starting, setStarting] = useState(false)
+  const start = async () => {
+    if (starting || started) return
+
+    setStarting(true)
+
+    try {
+      await onStart?.()
+    } finally {
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches
+      
+      setStarted(true)
+      setStarting(false)
+
+      if (reduceMotion) {
+        timeline.current?.progress(1).pause()
+        setFinished(true)
+
+        gsap.set(startScreen.current, {
+          autoAlpha: 0,
+          pointerEvents: 'none',
+        })
+
+        onRevealComplete?.()
+
+        return
+      }
+
+      timeline.current?.restart()
+
+      gsap.to(startScreen.current, {
+        autoAlpha: 0,
+        duration: 1.2,
+        delay: 0.1,
+        ease: 'power2.inOut',
+        pointerEvents: 'none',
+
+        onComplete: () => {
+          onRevealComplete?.()
+        },
+      })
+    }
+  }
 
   useLayoutEffect(() => {
     const media = gsap.matchMedia()
@@ -78,8 +125,8 @@ export default function Opening() {
 
       tl.fromTo(
         q('.op-sky img'), 
-        { scale: 1 }, 
-        { scale: 1.06, duration: 4, ease: 'none' }, 
+        { scale: 1.01, opacity: 0.65 }, 
+        { scale: 1.06, opacity: 1, duration: 4, ease: 'power1.out' }, 
         0,
       )
 
@@ -165,15 +212,8 @@ export default function Opening() {
         19.5,
       )
 
-      if (context.conditions.reduced) { 
-        tl.progress(1); 
-        finish() 
-      }
-
-      else {
-        setFinished(false)
-        tl.play()
-      }
+      setFinished(false)
+      tl.pause(0)
 
       return () => { 
         tl.kill(); 
@@ -194,10 +234,41 @@ export default function Opening() {
     <section 
     ref={root} 
     id="opening" 
-    className={`opening${finished ? ' is-finished' : ''}`} 
+    className={[
+      'opening',
+      started ? 'is-started' : '',
+      finished ? 'is-finished' : '',
+    ].filter(Boolean).join(' ')} 
     aria-label="이연주 포트폴리오 오프닝"
     >
-      {!finished && (
+      <div 
+        ref={startScreen}
+        className='op-start-screen'
+        aria-hidden={started}
+      >
+        <div className='op-start-content'>
+          <p className='op-start-label'>
+            LEE YEON JOO<br />
+            PORTFOLIO / 2026
+          </p>
+
+          <button
+            type='button'
+            className='op-start'
+            onClick={start}
+            disabled={starting || started}
+          >
+            <span>{starting ? 'LOADING' : 'START'}</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+
+          <p className='op-start-caption'>
+            SOUND ON · FULL EXPERIENCE
+          </p>
+        </div>
+      </div>
+
+      {started && !finished && (
         <button 
           type="button" 
           className="op-skip" 
