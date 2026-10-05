@@ -227,7 +227,7 @@
 
   .about-center{
     position: relative;
-    min-height: 720px;
+    min-height: 820px;
     padding-bottom: 0;
   }
   
@@ -264,6 +264,18 @@
     position: relative;
     z-index: 3;
     padding-bottom: 48px;
+  }
+
+  .about .about-message{
+    margin-top: 40px !important;
+  }
+
+  .about-left .about-group{
+    margin-top: 48px;
+  }
+
+  .about-right .about-group + .about-group{
+    margin-top: 48px;
   }
 }
 

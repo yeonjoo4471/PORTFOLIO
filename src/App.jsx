@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import { createPortal } from 'react-dom'
 
-import Opening from './components/Opening.jsx'
 import About from './components/About.jsx'
 import bgm from './assets/audio/j-rock-anime-opening-joyful.mp3'
 
 import './styles/App.css'
+import OpeningPreview from './components/OpeningPreview.jsx'
+import './styles/opening-preview.css'
+import Projects from './components/Projects.jsx'
 
 const MUSIC_VOLUME = 0.3
 
@@ -16,6 +19,7 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [openingVisible, setOpeningVisible] = useState(true)
+  const [showMusicControls, setShowMusicControls] = useState(false)
 
   const startMusic = async () => {
     const audio = audioRef.current
@@ -101,12 +105,10 @@ export default function App() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setOpeningVisible(
-          entry.isIntersecting && entry.intersectionRatio >= 0.35
-        )
+        setOpeningVisible(entry.isIntersecting)
       },
       {
-        threshold: [0, 0.35],
+        threshold: 0,
       },
     )
 
@@ -125,13 +127,17 @@ export default function App() {
       />
 
       <main>
-        <Opening
-          onStart={startMusic}
-          onRevealComplete={() => setShowMusicControls(true)} />
+        <OpeningPreview
+          onStart={() => {
+            setShowMusicControls(true)
+            return startMusic()
+          }} 
+        />
         <About />
+        <Projects />
       </main>
 
-      {showMusicControls && (
+      {showMusicControls && createPortal(
         <div
           className={[
             'music-controls',
@@ -201,7 +207,10 @@ export default function App() {
               )}
             </svg>
           </button>
-        </div>
+        </div>,
+        openingVisible
+          ? document.getElementById('opening')
+          : document.body
       )}
     </>
   )

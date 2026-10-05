@@ -1,3 +1,31 @@
+@font-face{
+  font-family: 'Cormorant Garamond';
+  src: url('../assets/fonts/title/Cormorant-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap
+}
+
+@font-face{
+  font-family: 'Pretendard';
+  src: url('../assets/fonts/body/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap
+}
+
+@font-face{
+  font-family: 'Pretendard';
+  src: url('../assets/fonts/body/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap
+}
+
+@font-face{
+  font-family: 'Caveat';
+  src: url('../assets/fonts/accent/Caveat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap
+}
+
 html{
   background:#F8FAFC
 }

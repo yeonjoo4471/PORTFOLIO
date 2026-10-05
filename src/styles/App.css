@@ -21,9 +21,16 @@
 }
 
 .music-controls.is-on-opening{
-  top: 88px;
-  right: 4.5%;
+  position: absolute;
+  top: 68px;
+  right: 5%;
   bottom: auto;
+  width: 84px;
+  height: 36px;
+  padding: 2px;
+  box-sizing: border-box;
+  justify-content: center;
+  gap: 4px;
 }
 
 .music-icon-button{
@@ -45,6 +52,12 @@
     color .25s ease,
     background-color .25s ease,
     transform .25s ease;
+}
+
+.music-controls.is-on-opening .music-icon-button{
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 
 .music-icon-button svg{
@@ -141,16 +154,18 @@
   }
 }
 
+@media (max-width: 900px){
+  .music-controls.is-on-opening{
+    top: 60px;
+    right: 6%;
+    bottom: auto;
+  }
+}
+
 @media (max-width: 600px){
   .music-controls{
     right: 14px;
     bottom: 14px;
-  }
-
-  .music-controls.is-on-opening{
-    top: 108px;
-    right: 7%;
-    bottom: auto;
   }
 
   .music-icon-button{
