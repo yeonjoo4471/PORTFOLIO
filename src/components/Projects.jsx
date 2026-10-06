@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Link } from 'react-router'
 
 import React from 'react'
 import touslesjoursCover from '../assets/images/projects/touslesjours/project-cover.png'
@@ -21,48 +22,56 @@ gsap.registerPlugin(ScrollTrigger)
 const projects = [
   {
     id: 'touslesjours',
+    slug: 'touslesjours',
     title: 'TOUS les JOURS',
     description: '뚜레쥬르 웹 리디자인',
     image: touslesjoursCover,
   },
   {
     id: 'megabox',
+    slug: 'megabox',
     title: 'MEGABOX',
     description: '메가박스 웹 클론 코딩',
     image: megaboxCover,
   },
   {
     id: 'megabox-app',
+    slug: 'megabox-app',
     title: 'MEGABOX APP',
     description: '메가박스 앱 UI/UX 디자인',
     image: megaboxAppCover,
   },
   {
     id: 'apple',
+    slug: 'apple',
     title: 'Apple',
     description: '애플 웹 클론 코딩',
     image: appleCover,
   },
   {
     id: 'duckspot',
+    slug: 'duckspot',
     title: 'DuckSpot',
     description: '지역과 취향으로 탐색하는 굿즈샵 지도',
     image: duckspotCover,
   },
   {
     id: 'wish-shop',
+    slug: 'wish-shop',
     title: 'WISH SHOP',
     description: '선택하며 이야기를 경험하는 소원가게',
     image: wishShopCover,
   },
   {
     id: 'cineops',
+    slug: 'cineops',
     title: 'CINEOPS',
     description: '영화관 운영 현황을 한 눈에 보는 대시보드',
     image: cineopsCover,
   },
   {
     id: 'anime-goods',
+    slug: 'anime-goods',
     title: 'ANIME GOODS',
     description: '작품별로 탐색하는 애니메이션 굿즈',
     image: animeGoodsCover,
@@ -188,7 +197,7 @@ const Projects = () => {
         slidesPerView='auto'
         centeredSlides
         spaceBetween={12}
-        speed={600}
+        speed={700}
         grabCursor
         threshold={8}
         preventClicks
@@ -208,18 +217,18 @@ const Projects = () => {
           setActiveIndex(swiper.activeIndex)
         }}
       >
-        {projects.map((project, index) => (
-          <SwiperSlide key={project.id}>
+        {projects.map((project, index) => {
+          const cardContent = (
             <article className='project-card'>
               <div className='project-card-image'>
-                <img 
-                  src={project.image} 
-                  alt={`${project.title} 프로젝트 화면`} 
-                  draggable={false} 
-                />
                 <span className='project-card-number'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
+
+                <img 
+                  src={project.image} 
+                  alt={`${project.title}`} 프로젝트 
+                />
               </div>
 
               <div className='project-card-info'>
@@ -227,8 +236,26 @@ const Projects = () => {
                 <h3>{project.title}</h3>
               </div>
             </article>
-          </SwiperSlide>
-        ))}
+          )
+
+          return (
+            <SwiperSlide key={project.id}>
+              {project.slug ? (
+                <Link
+                  to={`/projects/${project.slug}`}
+                  className='project-card-link'
+                  aria-label={`${project.title} 상세 페이지 보기`}
+                >
+                    {cardContent}
+                </Link>
+              ) : (
+                <div className='project-card-link is-disabled'>
+                  {cardContent}
+                </div>
+              )}
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
 
       <div className='projects-navigation'>
@@ -245,7 +272,7 @@ const Projects = () => {
           <span
             style={{
               width: `${((activeIndex + 1) / projects.length) * 100}%`,
-            }} 
+            }}
           />
         </div>
 

@@ -18,6 +18,7 @@
   display: grid;
   place-items: center;
   background: radial-gradient(circle at 75% 20%, #DDF2FC 0, transparent 38%), #F8FAFC;
+  will-change: opacity;
 }
 
 .op-start-screen::before{
@@ -235,6 +236,10 @@
   position: relative;
   min-width: 0;
   height: clamp(440px, 38vw, 610px);
+}
+
+.opening-preview.is-started .op-start-screen{
+  pointer-events: none;
 }
 
 .opening-photo{

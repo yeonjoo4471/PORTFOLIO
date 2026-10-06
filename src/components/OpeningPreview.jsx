@@ -52,7 +52,7 @@ const previewProjects = [
   {
     id: 'megabox-app',
     name: 'MEGABOX APP',
-    image: megaboxApp, 
+    image: megaboxApp,
   },
 ]
 
@@ -62,26 +62,88 @@ const projectGroups = [
   previewProjects.slice(6, 8),
 ]
 
-export default function OpeningPreview({ onStart }) {
+export default function OpeningPreview({ onStart, onRevealComplete, skipIntro = false, }) {
   const root = useRef(null)
   const timeline = useRef(null)
   const skipButton = useRef(null)
   const exploreLink = useRef(null)
+  const startScreen = useRef(null)
 
-  const [started, setStarted] = useState(false)
+  const [started, setStarted] = useState(skipIntro)
   const startLock = useRef(false)
 
-  const startIntro = () => {
+  const startIntro = async () => {
     if (startLock.current) return
+
     startLock.current = true
 
-    onStart?.()
+    try {
+      await onStart?.()
+    } finally {
+      setStarted(true)
 
-    setStarted(true)
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
+
+      if (reduceMotion) {
+        gsap.set(startScreen.current, {
+          autoAlpha: 0,
+          pointerEvents: 'none',
+        })
+
+        onRevealComplete?.()
+        return
+      }
+
+      gsap.to(startScreen.current, {
+        autoAlpha: 0,
+        duration: 1.2,
+        delay: 0.1,
+        ease: 'power2.inOut',
+        pointerEvents: 'none',
+
+        onComplete: () => {
+          onRevealComplete?.()
+        },
+      })
+    }
   }
 
   useLayoutEffect(() => {
     if (!started) return
+
+    if (skipIntro) {
+      const q = gsap.utils.selector(root)
+      const groups = q('.opening-preview-group')
+      const lastGroup = groups[groups.length - 1]
+
+      gsap.set(startScreen.current, {
+        autoAlpha: 0,
+        pointerEvents: 'none',
+      })
+
+      gsap.set(groups, {
+        autoAlpha: 0,
+      })
+
+      if (lastGroup) {
+        gsap.set(lastGroup, {
+          autoAlpha: 1,
+        })
+      }
+
+      gsap.set(q('.opening-preview-footer'), {
+        autoAlpha: 1,
+      })
+
+      gsap.set(skipButton.current, {
+        autoAlpha: 0,
+        pointerEvents: 'none',
+      })
+
+      return
+    }
 
     const media = gsap.matchMedia()
 
@@ -214,9 +276,9 @@ export default function OpeningPreview({ onStart }) {
     )
 
     return () => media.revert()
-  }, [started])
+  }, [started, skipIntro])
 
-  const skipIntro = () => {
+  const handleSkipIntro = () => {
     timeline.current?.progress(1).pause()
     exploreLink.current?.focus({ preventScroll: true })
   }
@@ -225,33 +287,35 @@ export default function OpeningPreview({ onStart }) {
     <section
       ref={root}
       id='opening'
-      className='opening-preview'
+      className={[
+        'opening-preview',
+        started ? 'is-started' : '',
+      ].filter(Boolean).join(' ')}
       aria-label='이연주 포트폴리오'
     >
 
-      {!started && (
-        <div className='op-start-screen'>
-          <div className='op-start-content'>
-            <p className='op-start-label'>
-              LEE YEON JOO
-              <br />
-              PORTFOLIO / 2026
-            </p>
+      <div ref={startScreen} className='op-start-screen' aria-hidden={started}>
+        <div className='op-start-content'>
+          <p className='op-start-label'>
+            LEE YEON JOO
+            <br />
+            PORTFOLIO / 2026
+          </p>
 
-            <button
-              type='button'
-              className='op-start'
-              onClick={startIntro}
-            >
-              <span>START</span>
-              <span aria-hidden="true">↗</span>
-            </button>
-            <p className='op-start-caption'>
-              SOUND ON · FULL EXPERIENCE
-            </p>
-          </div>
+          <button
+            type='button'
+            className='op-start'
+            onClick={startIntro}
+            disabled={started}
+          >
+            <span>START</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+          <p className='op-start-caption'>
+            SOUND ON · FULL EXPERIENCE
+          </p>
         </div>
-      )}
+      </div>
 
       {/* 배경 */}
       <img className='opening-preview-bg' src={sky} alt="" />
@@ -266,7 +330,7 @@ export default function OpeningPreview({ onStart }) {
         ref={skipButton}
         type='button'
         className='opening-preview-skip'
-        onClick={skipIntro}
+        onClick={handleSkipIntro}
         tabIndex={started ? 0 : -1}
       >
         SKIP INTRO ↗
@@ -313,8 +377,8 @@ export default function OpeningPreview({ onStart }) {
                   className={`opening-photo opening-photo-${index + 1}`}
                 >
                   <div className='opening-photo-image'>
-                    <img src={project.image} alt={`${project.name} 프로젝트 화면`} 
-                  />
+                    <img src={project.image} alt={`${project.name} 프로젝트 화면`}
+                    />
                   </div>
 
                   <figcaption>

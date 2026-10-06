@@ -1,24 +1,25 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { createPortal } from 'react-dom'
+import { Routes, Route, useLocation } from 'react-router'
 
-import About from './components/About.jsx'
+import Home from './pages/Home.jsx'
+import ProjectDetail from './pages/ProjectDetail.jsx'
+import NotFound from './pages/NotFound.jsx'
+import ScrollTop from './components/ScrollTop.jsx'
 import bgm from './assets/audio/j-rock-anime-opening-joyful.mp3'
 
 import './styles/App.css'
-import OpeningPreview from './components/OpeningPreview.jsx'
-import './styles/opening-preview.css'
-import Projects from './components/Projects.jsx'
 
 const MUSIC_VOLUME = 0.3
 
 export default function App() {
   const audioRef = useRef(null)
+  const { pathname } = useLocation()
 
-  const [hasStarted, setHasStarted] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
-  const [openingVisible, setOpeningVisible] = useState(true)
+  const [openingVisible, setOpeningVisible] = useState(false)
   const [showMusicControls, setShowMusicControls] = useState(false)
 
   const startMusic = async () => {
@@ -26,16 +27,16 @@ export default function App() {
 
     if (!audio) return
 
+    gsap.killTweensOf(audio)
+
     audio.currentTime = 0
     audio.volume = 0
     audio.muted = false
 
-    setHasStarted(true)
     setIsMuted(false)
 
     try {
       await audio.play()
-
       setIsPlaying(true)
 
       gsap.to(audio, {
@@ -99,23 +100,34 @@ export default function App() {
   }
 
   useEffect(() => {
+    if (pathname !== '/') {
+      setOpeningVisible(false)
+      return
+    }
+
     const opening = document.querySelector('#opening')
 
-    if (!opening) return
+    if (!opening) {
+      setOpeningVisible(false)
+      return
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setOpeningVisible(entry.isIntersecting)
+        setOpeningVisible(
+          entry.isIntersecting &&
+          entry.intersectionRatio >= 0.2
+        )
       },
       {
-        threshold: 0,
+        threshold: [0, 0.2],
       },
     )
 
     observer.observe(opening)
 
     return () => observer.disconnect()
-  }, [])
+  }, [pathname])
 
   return (
     <>
@@ -126,16 +138,31 @@ export default function App() {
         loop
       />
 
-      <main>
-        <OpeningPreview
-          onStart={() => {
-            setShowMusicControls(true)
-            return startMusic()
-          }} 
+      <ScrollTop />
+
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <Home
+              onStartMusic={startMusic}
+              onRevealComplete={() => {
+                setShowMusicControls(true)
+              }}
+            />
+          }
         />
-        <About />
-        <Projects />
-      </main>
+
+        <Route
+          path='/projects/:slug'
+          element={<ProjectDetail />}
+        />
+
+        <Route
+          path='*'
+          element={<NotFound />} 
+        />
+      </Routes>
 
       {showMusicControls && createPortal(
         <div
@@ -208,9 +235,7 @@ export default function App() {
             </svg>
           </button>
         </div>,
-        openingVisible
-          ? document.getElementById('opening')
-          : document.body
+        document.body,
       )}
     </>
   )
