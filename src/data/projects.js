@@ -96,7 +96,7 @@ export const projects = [
       'CSS',
       'JavaScript',
     ],
-    liveUrl: '',
+    liveUrl: 'https://yeonjoo4471.github.io/yj_touslesjours/',
     githubUrl: '',
     liveLabel: 'VIEW LIVE SITE',
     sections: [
@@ -153,7 +153,7 @@ export const projects = [
         label: 'RESPONSIVE',
         title: '기기별 사용 흐름을 고려한 반응형 화면',
         description: '데스크톱에서는 넓은 이미지와 여러 제품을 한 번에 보여주고 태블릿에서는 제품 카드를 두 열로 재구성했습니다. 모바일 화면에서는 매장 목록과 지도처럼 작은 화면에서 확인이 필요한 정보를 세로 흐름으로 배치해 기기마다 핵심 기능을 편리하게 작용할 수 있도록 했습니다.',
-        image: [
+        images: [
           {
             src: touslesjoursResponsiveDesktop,
             alt: '뚜레쥬르 웹 리디자인 데스크톱 화면',
@@ -207,7 +207,7 @@ export const projects = [
       'CSS',
       'JavaScript',
     ],
-    liveUrl: '',
+    liveUrl: 'https://yeonjoo4471.github.io/Apple-clone/',
     githubUrl: '',
     liveLabel: 'VIEW LIVE SITE',
     sections: [
@@ -328,7 +328,7 @@ export const projects = [
       'CSS',
       'JavaScript',
     ],
-    liveUrl: '',
+    liveUrl: 'https://yeonjoo4471.github.io/Megabox-clone/',
     githubUrl: '',
     liveLabel: 'VIEW LIVE SITE',
     sections: [
@@ -385,7 +385,7 @@ export const projects = [
         label: 'RESPONSIVE',
         title: '화면 크기에 맞춰 달라지는 반응형 구성',
         description: '데스크톱에서는 네 개의 영화 포스터를 한 줄로 보여주고 태블릿과 모바일에서는 화면 너비에 맞춰 콘텐츠의 크기와 배치를 조정했습니다. 모바일 화면에서는 영화 카드를 두 열로 배치하고 상단 메뉴도 작은 화면에 맞게 재구성했습니다.',
-        image: [
+        images: [
           {
             src: megaboxResponsiveDesktop,
             alt: '메가박스 웹 데스크톱 반응형 화면',
@@ -439,7 +439,7 @@ export const projects = [
       'Photoshop',
       'Illustrator',
     ],
-    liveUrl: '',
+    liveUrl: 'https://www.figma.com/design/OHRihQuk1NxbPdaZHVuTS8/%ED%98%9C%EB%82%98-%EC%97%B0%EC%A3%BC-%EC%88%98%EB%AF%BC?node-id=3302-24306&t=9zjKF3aqFsncViZE-1',
     githubUrl: '',
     liveLabel: 'VIEW LIVE APP',
     sections: [
@@ -536,7 +536,7 @@ export const projects = [
       'CSS',
       'JavaScript',
     ],
-    liveUrl: '',
+    liveUrl: 'https://yeonjoo4471.github.io/vibe_goodsshop/',
     githubUrl: '',
     liveLabel: 'EXPLORE DUCKSPOT',
     sections: [
@@ -642,7 +642,7 @@ export const projects = [
       'CSS',
       'JavaScript',
     ],
-    liveUrl: '',
+    liveUrl: 'https://yeonjoo4471.github.io/wish-shop/',
     githubUrl: '',
     liveLabel: 'ENTER WISH SHOP',
     sections: [
@@ -748,7 +748,7 @@ export const projects = [
       'CSS',
       'JavaScript',
     ],
-    liveUrl: '',
+    liveUrl: 'https://yeonjoo4471.github.io/CINEOPS/',
     githubUrl: '',
     liveLabel: 'VIEW DASHBOARD',
     sections: [
@@ -854,7 +854,7 @@ export const projects = [
       'CSS',
       'JavaScript',
     ],
-    liveUrl: '',
+    liveUrl: 'https://yeonjoo4471.github.io/Anime/',
     githubUrl: '',
     liveLabel: 'VIEW GOODS SHOP',
     sections: [

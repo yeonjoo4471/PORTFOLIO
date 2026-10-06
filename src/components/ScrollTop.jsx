@@ -5,7 +5,7 @@ export default function ScrollTop() {
   const location = useLocation()
 
   useEffect(() => {
-    const targetId = location.state?.ScrollTo
+    const targetId = location.state?.scrollTo
 
     if (targetId) {
       const frame = requestAnimationFrame(() => {

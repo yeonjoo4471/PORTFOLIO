@@ -208,6 +208,25 @@ export default function ProjectDetail() {
           </Link>
         </footer>
       )}
+
+      <button
+        type="button"
+        className="project-detail-top"
+        onClick={() => {
+          const reduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)',
+          ).matches
+
+          window.scrollTo({
+            top: 0,
+            behavior: reduceMotion ? 'instant' : 'smooth',
+          })
+        }}
+        aria-label="페이지 맨 위로 이동"
+      >
+        <span aria-hidden="true">↑</span>
+        TOP
+      </button>
     </main>
   )
 }

@@ -7,7 +7,7 @@ import Home from './pages/Home.jsx'
 import ProjectDetail from './pages/ProjectDetail.jsx'
 import NotFound from './pages/NotFound.jsx'
 import ScrollTop from './components/ScrollTop.jsx'
-import bgm from './assets/audio/j-rock-anime-opening-joyful.mp3'
+import bgm from './assets/audio/end-of-summer.mp3'
 
 import './styles/App.css'
 
