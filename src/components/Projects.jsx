@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 
 import React from 'react'
 import touslesjoursCover from '../assets/images/projects/touslesjours/project-cover.png'
@@ -79,9 +79,20 @@ const projects = [
 ]
 
 const Projects = () => {
+  const location = useLocation()
+
   const projectsRef = useRef(null)
   const swiperRef = useRef(null)
-  const [activeIndex, setActiveIndex] = useState(0)
+
+  const returnedProjectIndex = projects.findIndex(
+    (project) => project.slug === location.state?.activeProjectSlug,
+  )
+
+  const initialProjectIndex = returnedProjectIndex >= 0 ? returnedProjectIndex : 0
+
+  const [activeIndex, setActiveIndex] = useState(
+    initialProjectIndex,
+  )
 
   useLayoutEffect(() => {
     const media = gsap.matchMedia()
@@ -196,6 +207,7 @@ const Projects = () => {
         className='projects-swiper'
         slidesPerView='auto'
         centeredSlides
+        initialSlide={initialProjectIndex}
         spaceBetween={12}
         speed={700}
         grabCursor
@@ -212,6 +224,7 @@ const Projects = () => {
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper
+          setActiveIndex(swiper.activeIndex)
         }}
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.activeIndex)

@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router'
+import { Link, useParams, useLocation } from 'react-router'
 import { projects } from '../data/projects.js'
 import NotFound from './NotFound.jsx'
 
@@ -29,7 +29,7 @@ export default function ProjectDetail() {
       <header className='project-detail-header'>
         <Link
           to='/'
-          state={{ scrollTo: 'projects' }}
+          state={{ scrollTo: 'projects', activeProjectSlug: project.slug, }}
           className='project-detail-back'
         >
           <span aria-hidden='true'>←</span>
