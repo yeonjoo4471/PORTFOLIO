@@ -41,21 +41,14 @@ const contactInfo = {
   github: 'https://github.com/yeonjoo4471',
 }
 
-const contactLinks = [
+const archiveLinks = [
   {
-    label: 'EMAIL',
-    href: contactInfo.email ? `mailto:${contactInfo.email}` : '',
-    external: false,
+    label: 'GITHUB',
+    href: contactInfo.github,
   },
   {
     label: 'INSTAGRAM',
     href: contactInfo.instagram,
-    external: true,
-  },
-  {
-    label: 'GITHUB',
-    href: contactInfo.github,
-    external: true,
   },
 ]
 
@@ -67,6 +60,7 @@ export default function Contact() {
 
   const [isPaused, setIsPaused] = useState(false)
   const [motionEnabled, setMotionEnabled] = useState(false)
+  const [isEmailCopied, setIsEmailCopied] = useState(false)
 
   useLayoutEffect(() => {
     const media = gsap.matchMedia()
@@ -214,6 +208,20 @@ export default function Contact() {
     })
   }
 
+  const copyEmailAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(contactInfo.email)
+
+      setIsEmailCopied(true)
+
+      window.setTimeout(() => {
+        setIsEmailCopied(false)
+      }, 1600)
+    } catch (error) {
+      console.error('이메일 주소를 복사하지 못했습니다.', error)
+    }
+  }
+
   return (
     <section
       ref={contactRef}
@@ -329,38 +337,58 @@ export default function Contact() {
               </div>
             </div>
 
-            <nav
-              className='contact-links'
-              aria-labelledby='contact-links-title'
-            >
-              <h3 id='contact-links-title'>
-                LET'S KEEP IN TOUCH
-              </h3>
+            <div className='contact-links'>
+              <section
+                className='contact-email'
+                aria-labelledby='contact-email-title'
+              >
+                <h3 id='contact-email-title'>
+                  DIRECT EMAIL INQUIRY
+                </h3>
 
-              <ul>
-                {contactLinks.map((link) => (
-                  <li key={link.label}>
-                    {link.href ? (
-                      <a
+                <div className='contact-email-row'>
+                  <a
+                    className='contact-email-address' 
+                    href={`mailto:${contactInfo.email}`}
+                  >
+                    {contactInfo.email}
+                  </a>
+
+                  <button
+                    type='button'
+                    className='contact-email-copy'
+                    onClick={copyEmailAddress}
+                    aria-live='polite'
+                  >
+                    {isEmailCopied ? 'COPIED' : 'COPY ADDRESS'}
+                  </button>
+                </div>
+              </section>
+
+              <nav
+                className='contact-archives'
+                aria-labelledby='contact-archives-title'
+              >
+                <h3 id='contact-archives-title'>
+                  EXTERNAL ARCHIVES
+                </h3>
+
+                <ul>
+                  {archiveLinks.map((link) => (
+                    <li key={link.label}>
+                      <a 
                         href={link.href}
-                        target={link.external ? '_blank' : undefined}
-                        rel={
-                          link.external ? 'noopener noreferrer' : undefined
-                        }
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         <span>{link.label}</span>
                         <span aria-hidden='true'>↗</span>
                       </a>
-                    ) : (
-                      <span className='contact-link-placeholder'>
-                        <span>{link.label}</span>
-                        <span>주소 준비 중</span>
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
 

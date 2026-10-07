@@ -188,14 +188,15 @@
 }
 
 .process-step-description{
-  max-width: 350px;
+  max-width: none;
   margin-top: 16px;
   color: #536471;
-  font-size: 15px;
+  font-size: clamp(12px, 1.1vw, 15px);
   line-height: 1.85;
-  letter-spacing: -.015em;
+  letter-spacing: -.025em;
   word-break: keep-all;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 
 .process-step-tools{
@@ -347,8 +348,10 @@
 
   .process-step-description{
     margin-top: 12px;
-    font-size: 14px;
+    font-size: clamp(10px, 2.8vw, 13px);
     line-height: 1.85;
+    letter-spacing: -.045em;
+    white-space: nowrap;
   }
 
   .process-step-tools{
