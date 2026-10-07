@@ -13,6 +13,8 @@ import cssIcon from '../assets/icons/skills/css.png'
 import javascriptIcon from '../assets/icons/skills/javascript.png'
 import jqueryIcon from '../assets/icons/skills/jquery.png'
 import reactIcon from '../assets/icons/skills/react.png'
+import chatgptIcon from '../assets/icons/skills/chatgpt.png'
+import claudeIcon from '../assets/icons/skills/claude.png'
 
 import photographyImage from '../assets/images/about/interest/photography.jpg'
 import musicImage from '../assets/images/about/interest/music.jpg'
@@ -29,6 +31,8 @@ const tools = [
   { name: 'JavaScript', image: javascriptIcon },
   { name: 'jQuery', image: jqueryIcon, className: 'tool-jquery' },
   { name: 'React', image: reactIcon },
+  { name: 'ChatGPT', image: chatgptIcon },
+  { name: 'Claude', image: claudeIcon },
 ]
 
 const interests = [
