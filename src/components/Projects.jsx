@@ -227,7 +227,7 @@ const Projects = () => {
 
                 <img 
                   src={project.image} 
-                  alt={`${project.title}`} 프로젝트 
+                  alt={`${project.title} 프로젝트`} 
                 />
               </div>
 

@@ -90,6 +90,8 @@ export default function App() {
     })
   }
 
+  const [hasViewedIntro, setHasViewedIntro] = useState(false)
+
   const toggleMute = () => {
     const audio = audioRef.current
 
@@ -146,8 +148,12 @@ export default function App() {
           element={
             <Home
               onStartMusic={startMusic}
+              skipIntro={hasViewedIntro}
               onRevealComplete={() => {
                 setShowMusicControls(true)
+              }}
+              onIntroComplete={() => {
+                setHasViewedIntro(true)
               }}
             />
           }

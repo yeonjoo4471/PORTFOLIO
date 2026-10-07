@@ -9,15 +9,17 @@ import Contact from '../components/Contact.jsx'
 export default function Home({
   onStartMusic,
   onRevealComplete,
+  onIntroComplete,
+  skipIntro,
 }) {
   return (
     <>
-      
-
       <main>
         <OpeningPreview
           onStart={onStartMusic}
           onRevealComplete={onRevealComplete}
+          onIntroComplete={onIntroComplete}
+          skipIntro={skipIntro}
         />
 
         <About />

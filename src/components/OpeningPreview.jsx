@@ -62,7 +62,7 @@ const projectGroups = [
   previewProjects.slice(6, 8),
 ]
 
-export default function OpeningPreview({ onStart, onRevealComplete, skipIntro = false, }) {
+export default function OpeningPreview({ onStart, onRevealComplete, onIntroComplete, skipIntro = false, }) {
   const root = useRef(null)
   const timeline = useRef(null)
   const skipButton = useRef(null)
@@ -93,6 +93,7 @@ export default function OpeningPreview({ onStart, onRevealComplete, skipIntro = 
         })
 
         onRevealComplete?.()
+        onIntroComplete?.()
         return
       }
 
@@ -175,7 +176,8 @@ export default function OpeningPreview({ onStart, onRevealComplete, skipIntro = 
             ease: 'power2.out',
           },
           onComplete: () => {
-            gsap.set(skip, { autoAlpha: 0 })
+            gsap.set(skip, { autoAlpha: 0, pointerEvents: 'none', })
+            onIntroComplete?.()
           },
         })
 
@@ -280,6 +282,7 @@ export default function OpeningPreview({ onStart, onRevealComplete, skipIntro = 
 
   const handleSkipIntro = () => {
     timeline.current?.progress(1).pause()
+    onIntroComplete?.()
     exploreLink.current?.focus({ preventScroll: true })
   }
 
@@ -398,7 +401,19 @@ export default function OpeningPreview({ onStart, onRevealComplete, skipIntro = 
       </div>
 
       <footer className='opening-preview-footer'>
-        <a ref={exploreLink} href="#about" tabIndex={started ? 0 : -1}>
+        <a 
+          ref={exploreLink} 
+          href="#about" 
+          tabIndex={started ? 0 : -1}
+          onClick={(event) => {
+            event.preventDefault()
+
+            document.getElementById('about')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            })
+          }}
+        >
           SCROLL TO EXPLORE <span aria-hidden="true">↓</span>
         </a>
 

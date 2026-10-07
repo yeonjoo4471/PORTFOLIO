@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import workspaceImage from '../assets/images/process/process-workspace.png'
+import workspaceImage from '../assets/images/process/process-workspace-sunset.png'
 
 import '../styles/process.css'
 
