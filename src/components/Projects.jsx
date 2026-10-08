@@ -13,6 +13,8 @@ import duckspotCover from '../assets/images/projects/duckspot/project-cover.png'
 import wishShopCover from '../assets/images/projects/wish-shop/project-cover.png'
 import cineopsCover from '../assets/images/projects/cineops/project-cover.png'
 import animeGoodsCover from '../assets/images/projects/anime-goods/project-cover.png'
+import switchLiteDetailCover from '../assets/images/projects/switch-lite-detail/project-cover.png'
+import nespressoDetailCover from '../assets/images/projects/nespresso-vertuo-up/project-cover.png'
 
 import 'swiper/css'
 import '../styles/projects.css'
@@ -75,6 +77,20 @@ const projects = [
     title: 'ANIME GOODS',
     description: '작품별로 탐색하는 애니메이션 굿즈',
     image: animeGoodsCover,
+  },
+  {
+    id: 'switch-lite-detail',
+    slug: 'switch-lite-detail',
+    title: 'SWITCH LITE',
+    description: '일상 속 플레이를 제안하는 제품 상세페이지',
+    image: switchLiteDetailCover,
+  },
+  {
+    id: 'nespresso-vertuo-up',
+    slug: 'nespresso-vertuo-up',
+    title: 'VERTUO UP',
+    description: '취향에 맞는 커피 경험을 담은 제품 상세페이지',
+    image: nespressoDetailCover,
   },
 ]
 

@@ -76,6 +76,24 @@ import animeGoodsResponsiveDesktop from '../assets/images/projects/anime-goods/d
 import animeGoodsResponsiveTablet from '../assets/images/projects/anime-goods/detail/responsive-tablet.png'
 import animeGoodsResponsiveMobile from '../assets/images/projects/anime-goods/detail/responsive-mobile.png'
 
+import switchLiteDetailCover from '../assets/images/projects/switch-lite-detail/project-cover.png'
+import switchOverview from '../assets/images/projects/switch-lite-detail/detail/overview.png'
+import switchLifestyle from '../assets/images/projects/switch-lite-detail/detail/lifestyle.png'
+import switchFeatures from '../assets/images/projects/switch-lite-detail/detail/key-features.png'
+import switchBattery from '../assets/images/projects/switch-lite-detail/detail/battery.png'
+import switchConnection from '../assets/images/projects/switch-lite-detail/detail/connection.png'
+import switchColors from '../assets/images/projects/switch-lite-detail/detail/colors.png'
+import switchPurchase from '../assets/images/projects/switch-lite-detail/detail/purchase.png'
+
+import nespressoDetailCover from '../assets/images/projects/nespresso-vertuo-up/project-cover.png'
+import nespressoOverview from '../assets/images/projects/nespresso-vertuo-up/detail/overview.png'
+import nespressoObject from '../assets/images/projects/nespresso-vertuo-up/detail/object-design.png'
+import nespressoUsability from '../assets/images/projects/nespresso-vertuo-up/detail/usability.png'
+import nespressoBrewing from '../assets/images/projects/nespresso-vertuo-up/detail/brewing-system.png'
+import nespressoSizes from '../assets/images/projects/nespresso-vertuo-up/detail/coffee-sizes.png'
+import nespressoSmart from '../assets/images/projects/nespresso-vertuo-up/detail/smart-experience.png'
+import nespressoPurchase from '../assets/images/projects/nespresso-vertuo-up/detail/purchase.png'
+
 export const projects = [
   {
     slug: 'touslesjours',
@@ -318,9 +336,10 @@ export const projects = [
       'Photoshop',
       'Illustrator',
     ],
-    liveUrl: 'https://www.figma.com/design/OHRihQuk1NxbPdaZHVuTS8/%ED%98%9C%EB%82%98-%EC%97%B0%EC%A3%BC-%EC%88%98%EB%AF%BC?node-id=3302-24306&t=9zjKF3aqFsncViZE-1',
+    pdfFile: 'megabox-app-redesign.pdf',
+    pdfLabel: 'VIEW PROJECT PDF',
+    liveUrl: '',
     githubUrl: '',
-    liveLabel: 'VIEW LIVE APP',
     sections: [
       {
         id: 'overview',
@@ -343,7 +362,7 @@ export const projects = [
         description: '메가박스의 보라색 브랜드 컬러를 주요 선택 요소와 강조 영역에 사용하고, 영화 포스터와 콘텐츠가 충분히 돋보일 수 있도록 나머지 화면은 밝고 간결하게 구성했습니다.',
         image: megaboxAppVisual01,
         alt: '메가박스 앱 리디자인 아이폰 목업 화면',
-        layout: 'visual',
+        layout: 'contained',
       },
       {
         id: 'main-screen',
@@ -383,7 +402,7 @@ export const projects = [
         description: '화이트 기반의 화면 위에 메가박스의 보라색을 포인트 컬러로 사용했습니다. 카드의 간격과 버튼, 탭, 아이콘의 규칙을 통일해 서로 다른 기능의 화면에서도 같은 앱을 사용하는 느낌이 유지되도록 했습니다.',
         image: megaboxAppVisual02,
         alt: '메가박스 앱 리디자인 최종 아이폰 목업',
-        layout: 'visual',
+        layout: 'contained',
       },
       {
         id: 'result',
@@ -960,6 +979,207 @@ export const projects = [
         label: 'RESULT',
         title: '취향을 중심으로 탐색하는 굿즈 셀렉트숍',
         description: 'Anime Goods는 상품 종류가 아니라 사용자가 좋아하는 작품에서 탐색을 시작하도록 구성한 프로젝트입니다. 작품별 카테고리와 상품 필터, 반복되는 상품 카드와 반응형 레이아웃을 구현하면서 콘텐츠가 많은 쇼핑 페이지를 구조적으로 정리하는 경험을 쌓았습니다.',
+      },
+    ],
+  },
+
+  {
+    slug: 'switch-lite-detail',
+    type: 'graphic',
+    title: 'SWITCH LITE',
+    subtitle: 'Everyday Play Product Detail Page',
+    category: 'DETAIL PAGE · CONTENT DESIGN',
+    year: '2026',
+    heroImage: switchLiteDetailCover,
+    thumbnail: switchLiteDetailCover,
+    summary: '게임을 위한 시간을 따로 내는 대신 일상의 빈 순간을 플레이로 바꾼다는 메세지를 중심으로, Nintendo Switch Lite의 휴대성과 조작감, 배터리, 연결 기능을 사용 장면과 함께 전달한 제품 상세페이지입니다.',
+    role: 'CONTENT PLANNING · DETAIL PAGE DESIGN',
+    period: '2 WEEKS',
+    contribution: 'PERSONAL PROJECT · 100%',
+    tools: [
+      'Figma',
+      'Photoshop',
+      'Illustrator',
+    ],
+    liveUrl: 'https://www.figma.com/design/L5jBvRsWNyQmMO9Dg9cQj0/YEON-JOO?node-id=2-40&p=f&t=m3mzZVekvHuTLrvc-0',
+    liveLabel: 'VIEW FIGMA',
+    githubUrl: '',
+    sections: [
+      {
+        id: 'overview',
+        number: '01',
+        label: 'OVERVIEW',
+        title: '일상의 빈 순간을 플레이 타임으로',
+        description: 'Nintendo Switch Lite를 단순히 크기가 작은 게임기로 소개하지 않고, 이동 중이나 잠깐의 휴식처럼 일상 속 빈 시간을 자연스럽게 플레이로 이어주는 휴대형 게임기로 표현했습니다.',
+        image: switchOverview,
+        alt: '닌텐도 스위치 라이트 블루 에디션 메인 비주얼',
+        layout: 'visual',
+      },
+      {
+        id: 'content-strategy',
+        number: '02',
+        label: 'CONTENT STRATEGY',
+        title: '기능을 나열하지 않고 사용 장면으로 설득하다',
+        description: '제품 사양을 먼저 보여주는 대신 하루의 끝, 쉬어가는 순간, 친구와 함께하는 시간, 외출하는 날처럼 실제 사용자가 공감할 수 있는 장면을 먼저 제시했습니다. 이후 기능 정보를 연결해 제품이 필요한 이유를 자연스럽게 이해하도록 구성했습니다.',
+        image: switchLifestyle,
+        alt: '스위치 라이트를 사용하는 다양한 일상 장면',
+        layout: 'contained',
+      },
+      {
+        id: 'key-features',
+        number: '03',
+        label: 'KEY FEATURES',
+        title: '몰입감, 휴대성, 지속력 그리고 연결',
+        description: '상세페이지 전체 흐름을 몰입감, 휴대성, 배터리 지속력, 로컬 및 온라인 연결이라는 네 가지 핵심 가치로 구분했습니다. 각 기능을 제품 이미지와 사용 장면에 함께 배치해 정보가 직관적으로 전달되도록 했습니다.',
+        layout: 'responsive',
+        images: [
+          {
+            src: switchFeatures,
+            alt: '스위치 라이트 화면과 컨트롤 기능',
+            label: 'SCREEN & CONTROL',
+          },
+          {
+            src: switchBattery,
+            alt: '스위치 라이트 배터리 지속 시간',
+            label: 'BATTERY LIFE',
+          },
+          {
+            src: switchConnection,
+            alt: '스위치 라이트 연결 기능',
+            label: 'LOCAL & ONLINE PLAY',
+          },
+        ],
+      },
+      {
+        id: 'visual-direction',
+        number: '04',
+        label: 'VISUAL DIRECTION',
+        title: '닌텐도의 에너지를 살린 강한 색의 대비',
+        description: '닌텐도를 상징하는 선명한 레드와 블랙을 주요 색상으로 사용하고, 제품의 블루와 터콰이즈 컬러를 대비시켜 활기찬 게임 경험을 표현했습니다. 큰 타이포그래피와 역동적인 제품 배치로 페이지의 리듬을 만들었습니다.',
+        image: switchColors,
+        alt: '스위치 라이트 컬러 옵션 디자인',
+        layout: 'contained',
+      },
+      {
+        id: 'product-choice',
+        number: '05',
+        label: 'PRODUCT CHOICE',
+        title: '컬러 선택부터 모델 비교까지 이어지는 구매 흐름',
+        description: '게임 장르와 컬러 선택, 일반 Switch 및 OLED 모델과의 비교, 구성품과 상세 사양 순서로 정보를 정리했습니다. 사용자가 자신에게 맞는 제품인지 판단한 뒤 자연스럽게 구매 단계로 이동할 수 있도록 구성했습니다.',
+        image: switchPurchase,
+        alt: '스위치 라이트 제품 비교와 구매 정보',
+        layout: 'contained',
+      },
+      {
+        id: 'result',
+        number: '06',
+        label: 'RESULT',
+        title: '제품의 특징이 곧 사용 이유가 되는 상세페이지',
+        description: '스펙만 강조하기보다 Nintendo Switch Lite가 일상 속에서 어떤 경험을 제공하는지 보여주는 데 집중했습니다. 감성적인 사용 장면과 구체적인 제품 정보를 결합해 관심에서 비교, 구매까지 이어지는 하나의 흐름으로 완성했습니다.',
+      },
+    ],
+  },
+
+  {
+    slug: 'nespresso-vertuo-up',
+    type: 'graphic',
+    title: 'VERTUO UP',
+    subtitle: 'Personalized Coffee Experience Detail Page',
+    category: 'DETAIL PAGE · CONTENT DESIGN',
+    year: '2026',
+    heroImage: nespressoDetailCover,
+    thumbnail: nespressoDetailCover,
+    summary: '전원을 켠 뒤 3초 만에 취향에 맞는 커피를 즐길 수 있다는 경험을 중심으로, Nespresso Vertuo Up의 추출 방식과 다양한 커피 사이즈, 아이스 및 라떼 모드, 앱 연결 기능을 감성적인 라이프스타일 이미지와 함께 구성한 제품 상세페이지입니다.',
+    role: 'CONTENT PLANNING · DETAIL PAGE DESIGN',
+    period: '2 WEEKS',
+    contribution: 'PERSONAL PROJECT · 100%',
+    tools: [
+      'Figma',
+      'Photoshop',
+      'Illustrator',
+    ],
+    liveUrl: 'https://www.figma.com/design/L5jBvRsWNyQmMO9Dg9cQj0/YEON-JOO?node-id=2-41&p=f&t=m3mzZVekvHuTLrvc-0',
+    liveLabel: 'VIEW FIGMA',
+    githubUrl: '',
+    sections: [
+      {
+        id: 'overview',
+        number: '01',
+        label: 'OVERVIEW',
+        title: '3초 후 열리는 나만의 커피 경험',
+        description: '복잡한 준비 과정 없이 짧은 예열만으로 다양한 커피를 즐길 수 있다는 제품의 장점을 첫 메세지로 설정했습니다. 빠른 사용성과 넓은 선택지를 중심으로 Vertuo Up만의 경험을 전달했습니다.',
+        image: nespressoOverview,
+        alt: '네스프레소 버츄오 업 메인 비주얼',
+        layout: 'visual',
+      },
+      {
+        id: 'design-concept',
+        number: '02',
+        label: 'DESIGN CONCEPT',
+        title: '커피머신을 넘어 공간을 완성하는 오브제로',
+        description: '부드러운 곡선의 제품 디자인과 따뜻한 살구색, 크림색 계열을 활용해 커피머신이 주방에 놓이는 하나의 인테리어 오브제로 보이도록 연출했습니다. 여백이 충분한 편집형 레이아웃으로 제품의 고급스러운 이미지를 강조했습니다.',
+        image: nespressoObject,
+        alt: '공간 속 오브제로 연출한 네스프레소 머신',
+        layout: 'contained',
+      },
+      {
+        id: 'usability',
+        number: '03',
+        label: 'USABILITY',
+        title: '준비는 짧게, 사용은 더 직관적으로',
+        description: '3초 예열, 간단한 레버, 머신 유지 보수 버튼, 위치를 조절할 수 있는 대용량 물통과 앱 연결 기능을 실제 사용 순서에 맞춰 소개했습니다. 사용자가 기능을 빠르게 이해할 수 있도록 이미지와 짧은 설명을 교차 배치했습니다.',
+        layout: 'responsive',
+        images: [
+          {
+            src: nespressoUsability,
+            alt: '버츄오 업의 주요 사용 기능',
+            label: 'EASY CONTROL',
+          },
+          {
+            src: nespressoSmart,
+            alt: '버츄오 업 앱 연결 기능',
+            label: 'SMART EXPERIENCE',
+          },
+          {
+            src: nespressoSizes,
+            alt: '버츄오 업의 다양한 커피 사이즈',
+            label: 'COFFEE SIZES',
+          },
+        ],
+      },
+      {
+        id: 'brewing-system',
+        number: '04',
+        label: 'BREWING SYSTEM',
+        title: '캡슐을 읽고, 커피에 맞는 한 잔을 완성하다',
+        description: '캡슐의 바코드를 인식하고 물의 양과 회전 속도를 자동으로 조절하는 READ, ADJUST, BREW 과정을 중심으로 추출 기술을 설명했습니다. 커피의 깊이와 크레마가 만들어지는 과정을 시각적으로 보여주어 기술적 장점을 쉽게 이해하도록 구성했습니다.',
+        image: nespressoBrewing,
+        alt: '네스프레소 센트리퓨전 회전 추출 과정',
+        layout: 'visual',
+      },
+      {
+        id: 'coffee-experience',
+        number: '05',
+        label: 'COFFEE EXPERIENCE',
+        title: '아이스부터 라떼까지 넓어진 커피의 선택',
+        description: '에스프레소부터 XL 사이즈까지 이어지는 여섯 가지 커피 사이즈와 아이스 및 라떼 모드를 한눈에 비교하도록 정리했습니다. 커피 종류에 따른 결과 이미지를 활용해 사용자가 자신에게 맞는 음료를 상상할 수 있도록 했습니다.',
+      },
+      {
+        id: 'purchase-flow',
+        number: '06',
+        label: 'PURCHASE FLOW',
+        title: '공간과 취향에 맞는 선택으로 이어지도록',
+        description: '물통 배치 방식과 앱 기능, 머신 크기와 무게, 캡슐 용량, 컬러 옵션, 서비스 정보 순서로 구매 전 필요한 내용을 정리했습니다. 감성적인 제품 경험에서 시작해 실제 구매 판단에 필요한 정보까지 자연스럽게 이어지도록 구성했습니다.',
+        image: nespressoPurchase,
+        alt: '버츄오 업 제품 정보와 컬러 옵션',
+        layout: 'contained',
+      },
+      {
+        id: 'result',
+        number: '07',
+        label: 'RESULT',
+        title: '기능과 감성이 균형을 이루는 상세페이지',
+        description: '제품의 기술적인 장점을 어렵게 설명하기보다 매일 마시는 커피가 얼마나 빠르고 편리해질 수 있는지를 중심으로 풀어냈습니다. 따뜻한 라이프스타일 이미지와 명확한 정보 구조를 결합해 브랜드의 감성과 제품의 설득력을 함께 전달했습니다.',
       },
     ],
   },

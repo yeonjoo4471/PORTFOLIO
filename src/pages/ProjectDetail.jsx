@@ -17,6 +17,12 @@ export default function ProjectDetail() {
 
   const project = projects[projectIndex]
 
+  const pdfUrl = project.pdfFile ? `${import.meta.env.BASE_URL}files/projects/${project.pdfFile}` : ''
+
+  const primaryProjectUrl = project.liveUrl || pdfUrl
+
+  const primaryProjectLabel = project.liveUrl ? project.liveLabel ?? 'VIEW LIVE SITE': project.pdfLabel ?? 'VIEW PDF'
+
   const nextProject = projects[(projectIndex + 1) % projects.length]
 
   return (
@@ -51,8 +57,20 @@ export default function ProjectDetail() {
         </div>
 
         <div className='project-detail-actions'>
+          {pdfUrl && (
+            <a
+              href={pdfUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              {project.pdfLabel ?? 'VIEW PDF'}
+
+              <span aria-hidden='true'>↗</span>
+            </a>
+          )}
+
           {project.liveUrl && (
-            <a 
+            <a
               href={project.liveUrl}
               target='_blank'
               rel='noopener noreferrer'
@@ -70,6 +88,7 @@ export default function ProjectDetail() {
               rel='noopener noreferrer'
             >
               GITHUB
+
               <span aria-hidden='true'>↗</span>
             </a>
           )}
@@ -180,16 +199,16 @@ export default function ProjectDetail() {
         ))}
       </div>
 
-      {project.liveUrl && (
+      {primaryProjectUrl && (
         <section className='project-detail-visit'>
           <p>EXPERIENCE THE PROJECT</p>
 
-          <a 
-            href={project.liveUrl}
+          <a
+            href={primaryProjectUrl}
             target='_blank'
             rel='noopener noreferrer'
           >
-            {project.liveLabel ?? 'VISIT WEBSITE'}
+            {primaryProjectLabel}
 
             <span aria-hidden='true'>↗</span>
           </a>
