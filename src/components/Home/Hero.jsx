@@ -7,10 +7,29 @@ import '../../styles/hero.css'
 export default function Hero({isActive=false}) {
   const heroRef = useRef(null)
 
-  useLayoutEffect(() => {
-    if (!isActive) return
-
+    useLayoutEffect(() => {
     const context = gsap.context(() => {
+      const select = gsap.utils.selector(heroRef)
+
+      const targets = select(
+        [
+          '.hero-meta-top',
+          '.hero-kicker',
+          '.hero-title > span',
+          '.hero-identity',
+          '.hero-statement',
+          '.hero-scroll-indicator',
+        ].join(','),
+      )
+
+      // 오프닝이 진행되는 동안에는 메인 글자를 숨겨둡니다.
+      gsap.set(targets, {
+        autoAlpha: 0,
+      })
+
+      // 오프닝이 끝나기 전에는 등장 애니메이션을 시작하지 않습니다.
+      if (!isActive) return
+
       const timeline = gsap.timeline({
         defaults: {
           ease: 'power3.out',
@@ -18,48 +37,45 @@ export default function Hero({isActive=false}) {
       })
 
       timeline
-        .from('.hero-meta-top', {
-          autoAlpha: 0,
-          y: -12,
-          duration: 0.45,
-        })
-        .from(
-          '.hero-kicker',
-          {
-            autoAlpha: 0,
-            y: 16,
-            duration: 0.45,
-          },
-          '-=0.15',
+        .fromTo(
+          select('.hero-meta-top'),
+          { autoAlpha: 0, y: -8 },
+          { autoAlpha: 1, y: 0, duration: 0.5 },
+          0,
         )
-        .from(
-          '.hero-title > span',
-          {
-            autoAlpha: 0,
-            y: 45,
-            duration: 0.8,
-            stagger: 0.12,
-          },
-          '-=0.15',
+        .fromTo(
+          select('.hero-kicker'),
+          { autoAlpha: 0, y: 12 },
+          { autoAlpha: 1, y: 0, duration: 0.5 },
+          0.1,
         )
-        .from(
-          ['.hero-identity', '.hero-statement'],
+        .fromTo(
+          select('.hero-title > span'),
+          { autoAlpha: 0, y: 28 },
           {
-            autoAlpha: 0,
-            y: 22,
-            duration: 0.6,
-            stagger: 0.12,
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.85,
+            stagger: 0.1,
           },
-          '-=0.35',
+          0.2,
         )
-        .from(
-          '.hero-scroll-indicator',
+        .fromTo(
+          select('.hero-identity, .hero-statement'),
+          { autoAlpha: 0, y: 16 },
           {
-            autoAlpha: 0,
-            y: 12,
-            duration: 0.45,
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.08,
           },
-          '-=0.2',
+          0.5,
+        )
+        .fromTo(
+          select('.hero-scroll-indicator'),
+          { autoAlpha: 0, y: 8 },
+          { autoAlpha: 1, y: 0, duration: 0.5 },
+          0.75,
         )
     }, heroRef)
 

@@ -34,8 +34,6 @@
 .skills-section {
   padding: clamp(72px, 7vw, 112px) 0;
   background-color: var(--color-cloud-white);
-  border-top: 1px solid var(--color-border-light);
-  border-bottom: 1px solid var(--color-border-light);
 }
 
 .skills-intro {

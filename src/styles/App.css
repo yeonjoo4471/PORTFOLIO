@@ -2,20 +2,15 @@
   position: fixed;
   right: 28px;
   bottom: 26px;
-  z-index: 100;
-
+  z-index: calc(var(--z-opening) + 1);
   display: flex;
   align-items: center;
   gap: 4px;
-
   padding: 5px;
-
   border: 1px solid rgba(83, 100, 113, .22);
   border-radius: 999px;
-
   background: rgba(248, 250, 252, .82);
   box-shadow: 0 8px 30px rgba(23, 42, 58, .08);
-
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -36,17 +31,13 @@
 .music-icon-button{
   display: grid;
   place-items: center;
-
   width: 34px;
   height: 34px;
   padding: 0;
-
   border: 0;
   border-radius: 50%;
-
   background: transparent;
   color: #172a3a;
-
   cursor: pointer;
   transition:
     color .25s ease,
@@ -152,6 +143,97 @@
   to{
     transform: scaleY(2.7);
   }
+}
+
+.portfolio-start-screen {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-opening) + 2);
+
+  display: grid;
+  place-items: center;
+
+  box-sizing: border-box;
+  padding: 24px;
+  overflow-y: auto;
+
+  background: var(--color-black);
+  color: var(--color-cloud-white);
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.portfolio-start-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-start-year {
+  margin: 0 0 20px;
+  color: var(--color-sky-blue);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.portfolio-start-title {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: clamp(56px, 12vw, 120px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-start-role {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.portfolio-start-button {
+  margin-top: 48px;
+  padding: 15px 48px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+
+  background: transparent;
+  color: inherit;
+
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.portfolio-start-button:hover:not(:disabled) {
+  background: var(--color-cloud-white);
+  color: var(--color-deep-navy);
+  border-color: var(--color-cloud-white);
+}
+
+.portfolio-start-button:focus-visible {
+  outline: 2px solid var(--color-sky-blue);
+  outline-offset: 6px;
+}
+
+.portfolio-start-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.portfolio-start-note {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 @media (max-width: 900px){
