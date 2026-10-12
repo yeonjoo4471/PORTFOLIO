@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Skills Section Styling
+   Theme: Setting Book File 02 (Ability Specification Matrix)
+   Structure: 4-Column Continuous Matrix (No Cards, Airy Padding)
+   ========================================================================== */
+
+.skills-section,
+.skills-section * {
+  box-sizing: border-box;
+}
+
+.skills-section {
+  font-family: var(--font-body);
+  color: var(--color-body-slate);
+}
+
+.skills-section h2,
+.skills-section h3,
+.skills-section p {
+  margin: 0;
+}
+
+.skills-section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-section img {
+  display: block;
+  max-width: 100%;
+}
+
+.skills-section {
+  padding: clamp(72px, 7vw, 112px) 0;
+  background-color: var(--color-cloud-white);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.skills-intro {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+  align-items: flex-end;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.skills-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-clear-blue);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.skills-title {
+  font-size: clamp(2.5rem, 4.8vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--color-deep-navy);
+}
+
+.skills-intro-right p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-body-slate);
+}
+
+/* ==========================================================================
+   Continuous 4-Column Technical Matrix (No Cards, Pure Editorial Grid)
+   ========================================================================== */
+
+.skills-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--color-deep-navy);
+  border-bottom: 1px solid var(--color-border-medium);
+  background: transparent;
+}
+
+.skills-matrix-col {
+  padding: 2rem 1.5rem 2.25rem;
+  border-right: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.skills-matrix-col:first-child {
+  padding-left: 1rem;
+}
+
+.skills-matrix-col:last-child {
+  border-right: none;
+  padding-right: 1rem;
+}
+
+.skills-matrix-col:hover {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+/* Column Header */
+.matrix-col-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border-medium);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.matrix-meta-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.matrix-fig-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-clear-blue);
+}
+
+.skills-description {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 0 0 auto;
+  justify-self: end;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.matrix-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-slate-light);
+  text-transform: uppercase;
+}
+
+.matrix-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.matrix-category {
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: var(--color-deep-navy);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.matrix-icon-wrap {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+}
+
+.matrix-icon {
+  max-width: 26px;
+  max-height: 26px;
+  object-fit: contain;
+}
+
+/* Items List */
+.matrix-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.matrix-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(23, 42, 58, 0.05);
+}
+
+.matrix-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.matrix-item-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.matrix-bullet {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-clear-blue);
+}
+
+.matrix-item-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-deep-navy);
+}
+
+.matrix-item-desc {
+  font-size: 0.84375rem;
+  color: var(--color-body-slate);
+  line-height: 1.6;
+  padding-left: 0.95rem;
+}
+
+/* ==========================================================================
+   Footer Annotation
+   ========================================================================== */
+
+.skills-footer-annotation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.annotation-col {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  font-size: 0.8125rem;
+}
+
+.annotation-tag {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-clear-blue);
+  font-size: 0.75rem;
+}
+
+.annotation-text {
+  color: var(--color-slate-light);
+}
+
+.tools-mini-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  opacity: 0.65;
+  filter: grayscale(0.4);
+  transition: opacity var(--duration-fast) ease, filter var(--duration-fast) ease;
+}
+
+.tools-mini-icons:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.tools-mini-icons img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+#skills .archive-filebar > * {
+  color: var(--archive-blue);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .skills-matrix {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-matrix-col {
+    padding: 1.85rem 1.35rem;
+  }
+
+  .skills-matrix-col:nth-child(2) {
+    border-right: none;
+  }
+
+  .skills-matrix-col:nth-child(3) {
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .skills-matrix-col:nth-child(4) {
+    border-top: 1px solid var(--color-border-light);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-intro {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .skills-matrix {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-matrix-col {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-light);
+    padding: 1.75rem 0;
+  }
+
+  .skills-matrix-col:first-child {
+    padding-left: 0;
+  }
+
+  .skills-matrix-col:last-child {
+    border-bottom: none;
+    padding-right: 0;
+  }
+
+  .skills-footer-annotation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

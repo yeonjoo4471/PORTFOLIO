@@ -46,6 +46,9 @@
 .process-meta{
   padding-bottom: 18px;
   border-bottom: 1px solid #dce5ea;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
 }
 
 .process-footer{
@@ -59,7 +62,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(40px, 5vw, 88px);
+  gap: clamp(80px, 7vw, 140px);
   padding: 36px 0;
 }
 

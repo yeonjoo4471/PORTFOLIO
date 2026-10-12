@@ -240,9 +240,9 @@ export default function Contact() {
         />
       </div>
 
-      <div className='contact-inner'>
-        <header className='contact-meta'>
-          <p>FILE 04 / CONTACT</p>
+      <div className='contact-inner archive-layout'>
+        <header className='contact-meta archive-filebar'>
+          <p>FILE 05 / CONTACT</p>
           <p>UNTIL THE NEXT CHAPTER</p>
         </header>
 

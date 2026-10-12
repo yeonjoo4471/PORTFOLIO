@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Design Tokens & Variables
+   Theme: ANIME OPENING × SETTING BOOK
+   ========================================================================== */
+
+:root {
+  /* Color System */
+  --color-cloud-white: #F8FAFC;
+  --color-white: #FFFFFF;
+  --color-sky-blue: #67B7E8;
+  --color-clear-blue: #3B91D1;
+  --color-mist-blue: #DDF2FC;
+  --color-deep-navy: #172A3A;
+  --color-body-slate: #53616D;
+  --color-slate-light: #8E9BA7;
+  --color-border-light: rgba(23, 42, 58, 0.08);
+  --color-border-medium: rgba(23, 42, 58, 0.16);
+  --color-border-dark: rgba(255, 255, 255, 0.15);
+
+  /* Dramatic Contrast (Scene cuts, Opening, Credits) */
+  --color-black: #0B1319;
+  --color-dark-surface: #121F2B;
+
+  /* Typography */
+  --font-title: 'Cormorant Garamond', serif;
+  --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-accent: 'Caveat', cursive;
+
+  /* Layout: Spacious & Breathable Editorial Canvas */
+  --max-width-editorial: 1640px;
+  --max-width-wide: 1800px;
+  --max-width-prose: 900px;
+  --container-padding: clamp(1.75rem, 4.5vw, 4.75rem);
+
+  /* Spacing: Generous & Breathable */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.85rem;
+  --space-md: 1.15rem;
+  --space-lg: 1.75rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 3.75rem;
+  --space-3xl: 5.5rem;
+  --space-4xl: 7.5rem;
+  --space-section: clamp(6rem, 10vw, 10.5rem);
+
+  /* Motion Timings & Easings */
+  --ease-cut: cubic-bezier(0.2, 0, 0, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.25s;
+  --duration-normal: 0.45s;
+  --duration-slow: 0.75s;
+
+  /* Elevation */
+  --shadow-subtle: 0 4px 20px rgba(23, 42, 58, 0.04);
+  --shadow-editorial: 0 12px 36px rgba(23, 42, 58, 0.08);
+
+  /* Z-Index Hierarchy */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-header: 500;
+  --z-audio: 600;
+  --z-modal: 1000;
+  --z-opening: 2000;
+}

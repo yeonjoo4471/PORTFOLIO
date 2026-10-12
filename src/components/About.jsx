@@ -101,12 +101,12 @@ const About = () => {
   
   return (
     <section ref={aboutRef} id='about' className='about'>
-      <header className='about-header'>
+      <header className='about-header archive-filebar archive-layout'>
         <p>FILE 01 / ABOUT</p>
         <p>MY PERSONAL ARCHIVE</p>
       </header>
 
-      <div className='about-layout'>
+      <div className='about-layout archive-layout'>
         {/* 왼쪽 정보 */}
         <div className='about-left'>
           <h2 className='about-title'>

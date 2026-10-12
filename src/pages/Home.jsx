@@ -1,32 +1,25 @@
-import { useLocation } from 'react-router'
+import Hero from '../components/Home/Hero.jsx'
+import Skills from '../components/Home/Skills.jsx'
 
-import OpeningPreview from '../components/OpeningPreview.jsx'
 import About from '../components/About.jsx'
 import Projects from '../components/Projects.jsx'
 import Process from '../components/Process.jsx'
 import Contact from '../components/Contact.jsx'
 
-export default function Home({
-  onStartMusic,
-  onRevealComplete,
-  onIntroComplete,
-  skipIntro,
-}) {
+export default function Home({introComplete}) {
   return (
-    <>
-      <main>
-        <OpeningPreview
-          onStart={onStartMusic}
-          onRevealComplete={onRevealComplete}
-          onIntroComplete={onIntroComplete}
-          skipIntro={skipIntro}
-        />
+    <main>
+      <Hero isActive={introComplete} />
 
-        <About />
-        <Projects />
-        <Process />
-        <Contact />
-      </main>
-    </>
+      <About />
+
+      <Skills />
+
+      <Projects />
+
+      <Process />
+
+      <Contact />
+    </main>
   )
 }

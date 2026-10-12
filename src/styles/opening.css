@@ -1,0 +1,312 @@
+/* ==========================================================================
+   Anime Opening Sequence Styling
+   Theme: Contrast Black Screen into Clear Summer Sky
+   ========================================================================== */
+
+.opening-overlay,
+.opening-overlay * {
+  box-sizing: border-box;
+}
+
+.opening-overlay {
+  font-family: var(--font-body);
+}
+
+.opening-overlay h1,
+.opening-overlay h2,
+.opening-overlay p {
+  margin: 0;
+}
+
+.opening-overlay button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.opening-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-opening);
+  background-color: #000;
+  color: var(--color-cloud-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.opening-overlay.is-closing {
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+/* Skip Button */
+.opening-skip-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  transition: all var(--duration-fast) ease;
+}
+
+.opening-skip-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Background Visuals for Scenes 3+ */
+.opening-visual-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.opening-visual-bg.scene-3,
+.opening-visual-bg.scene-4,
+.opening-visual-bg.scene-5 {
+  opacity: 1;
+}
+
+.opening-bg-sky {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  filter: saturate(1.1);
+}
+
+.opening-bg-wind {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+}
+
+.opening-bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+/* Common Scene Container */
+.scene-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: sceneFadeIn 0.4s ease both;
+}
+
+@keyframes sceneFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scene 1: Minimal */
+.scene-1-block {
+  gap: 0.75rem;
+}
+
+.opening-tag-year {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--color-sky-blue);
+}
+
+.opening-spec-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-line {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Scene 2: Kinetic Cut */
+.kinetic-cut-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+}
+
+.kinetic-word {
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  animation: kineticCut 0.35s cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+.cut-1 {
+  animation-delay: 0.05s;
+}
+
+.cut-2 {
+  animation-delay: 0.35s;
+}
+
+.cut-3 {
+  animation-delay: 0.65s;
+  color: var(--color-sky-blue);
+}
+
+.kinetic-separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+@keyframes kineticCut {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scene 3: Sky Mask Reveal */
+.mask-reveal-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.scene-3-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #ffe08a;
+  opacity: 1;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(7, 30, 52, 0.75);
+}
+
+.scene-3-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* Scene 4: Credits Cross */
+.opening-credits-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.credit-role-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #ffe08a;
+  opacity: 1;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(7, 30, 52, 0.75);
+}
+
+.credit-name-highlight {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+/* Scene 5: Main Title Card */
+.scene-5-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.main-title-pre {
+  font-size: 0.8125rem;
+  letter-spacing: 0.3em;
+  color: #ffe08a;
+  opacity: 1;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(7, 30, 52, 0.75);
+}
+
+.main-title-name {
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: #fff;
+  letter-spacing: 0.06em;
+}
+
+.main-title-role {
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.96);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Progress bar */
+.opening-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.opening-progress-fill {
+  height: 100%;
+  background: var(--color-sky-blue);
+  animation: openingProgress 7.6s linear forwards;
+}
+
+@keyframes openingProgress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}

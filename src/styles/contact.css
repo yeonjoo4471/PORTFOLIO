@@ -77,18 +77,15 @@
   padding-bottom: 18px;
   border-bottom: 1px solid var(--contact-line);
   color: var(--contact-muted);
-  font-size: 11px;
-  line-height: 1.6;
-  letter-spacing: .18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
 }
 
 .contact-layout {
-  flex: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(48px, 7vw, 112px);
-  padding: 48px 0 64px;
+  grid-template-columns: minmax(0, 1fr) clamp(450px, 30vw, 520px);
+  column-gap: clamp(70px, 7vw, 130px);
 }
 
 .contact-message,
@@ -137,8 +134,14 @@
 
 .contact-right {
   width: 100%;
-  max-width: 420px;
+  max-width: 520px;
   justify-self: end;
+  padding-top: 32px;
+}
+
+.contact-credits,
+.contact-info {
+  width: 100%;
 }
 
 .contact-credits-header {
@@ -210,7 +213,7 @@
 
 .contact-links {
   margin-top: 28px;
-  padding-top: 24px;
+  padding-top: 80px;
   border-top: 1px solid var(--contact-line);
 }
 

@@ -198,8 +198,8 @@ const Projects = () => {
       aria-labelledby='projects-title'
     >
       <header className='projects-header'>
-        <div className='projects-meta'>
-          <span>FILE 02 / PROJECTS</span>
+        <div className='projects-meta archive-filebar archive-layout'>
+          <span>FILE 03 / PROJECTS</span>
           <span>SELECTED WORKS / 2026</span>
         </div>
 
@@ -208,7 +208,7 @@ const Projects = () => {
           <span className='projects-signature'>Archive</span>
         </div>
 
-        <div className='projects-guide'>
+        <div className='projects-guide archive-layout'>
           <p>DRAG TO EXPLORE ↔</p>
 
           <p aria-live='polite' aria-atomic='true'>

@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { createPortal } from 'react-dom'
 import { Routes, Route, useLocation } from 'react-router'
 
+import Header from './components/Header.jsx'
 import Home from './pages/Home.jsx'
 import ProjectDetail from './pages/ProjectDetail.jsx'
 import NotFound from './pages/NotFound.jsx'
 import ScrollTop from './components/ScrollTop.jsx'
+import Opening from './components/Opening.jsx'
 import bgm from './assets/audio/end-of-summer.mp3'
 
 import './styles/App.css'
@@ -19,36 +21,6 @@ export default function App() {
 
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
-  const [openingVisible, setOpeningVisible] = useState(false)
-  const [showMusicControls, setShowMusicControls] = useState(false)
-
-  const startMusic = async () => {
-    const audio = audioRef.current
-
-    if (!audio) return
-
-    gsap.killTweensOf(audio)
-
-    audio.currentTime = 0
-    audio.volume = 0
-    audio.muted = false
-
-    setIsMuted(false)
-
-    try {
-      await audio.play()
-      setIsPlaying(true)
-
-      gsap.to(audio, {
-        volume: MUSIC_VOLUME,
-        duration: 1.5,
-        ease: 'power1.out',
-      })
-    } catch (error) {
-      setIsPlaying(false)
-      console.error('음악을 재생하지 못했습니다.', error)
-    }
-  }
 
   const togglePlayback = async () => {
     const audio = audioRef.current
@@ -90,7 +62,27 @@ export default function App() {
     })
   }
 
-  const [hasViewedIntro, setHasViewedIntro] = useState(false)
+  const [showOpening, setShowOpening] = useState(() => {
+    if (typeof window === 'undefined') return false
+
+    const isDirectProject =
+      window.location.hash.includes('/projects/')
+
+    return !isDirectProject
+  })
+
+  const [introComplete, setIntroComplete] = useState(false)
+
+  const handleOpeningComplete = () => {
+    setShowOpening(false)
+    setIntroComplete(true)
+  }
+
+  const [showMusicControls, setShowMusicControls] = useState(() => {
+    if (typeof window === 'undefined') return false
+
+    return window.location.hash.includes('/projects/')
+  })
 
   const toggleMute = () => {
     const audio = audioRef.current
@@ -101,38 +93,20 @@ export default function App() {
     setIsMuted(audio.muted)
   }
 
-  useEffect(() => {
-    if (pathname !== '/') {
-      setOpeningVisible(false)
-      return
-    }
-
-    const opening = document.querySelector('#opening')
-
-    if (!opening) {
-      setOpeningVisible(false)
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setOpeningVisible(
-          entry.isIntersecting &&
-          entry.intersectionRatio >= 0.2
-        )
-      },
-      {
-        threshold: [0, 0.2],
-      },
-    )
-
-    observer.observe(opening)
-
-    return () => observer.disconnect()
-  }, [pathname])
-
   return (
     <>
+      <Home introComplete={introComplete} />
+      
+      {showOpening && (
+        <Opening
+          onComplete={() => {
+            setShowOpening(false)
+            setIntroComplete(true)
+            setShowMusicControls(true)
+          }} 
+        />
+      )}
+
       <audio
         ref={audioRef}
         src={bgm}
@@ -142,20 +116,13 @@ export default function App() {
 
       <ScrollTop />
 
+      {pathname === '/' && <Header />}
+
       <Routes>
         <Route
           path='/'
           element={
-            <Home
-              onStartMusic={startMusic}
-              skipIntro={hasViewedIntro}
-              onRevealComplete={() => {
-                setShowMusicControls(true)
-              }}
-              onIntroComplete={() => {
-                setHasViewedIntro(true)
-              }}
-            />
+            <Home introComplete={introComplete} />
           }
         />
 
@@ -172,10 +139,7 @@ export default function App() {
 
       {showMusicControls && createPortal(
         <div
-          className={[
-            'music-controls',
-            openingVisible ? 'is-on-opening' : '',
-          ].filter(Boolean).join(' ')}
+          className='music-controls'
           role="group"
           aria-label="배경음악 컨트롤"
         >
