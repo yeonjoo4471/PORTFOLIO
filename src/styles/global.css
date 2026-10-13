@@ -1,9 +1,9 @@
 @import './variables.css';
 
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../assets/fonts/title/Cormorant-Regular.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'M_PLUS';
+  src: url('../assets/fonts/title/MPLUSRounded1c-Bold.ttf') format('truetype');
+  font-weight: 500;
   font-display: swap
 }
 
@@ -89,7 +89,6 @@ body {
   align-items: baseline;
   padding-bottom: var(--space-sm);
   margin-bottom: var(--space-2xl);
-  border-bottom: 1px solid var(--color-border-medium);
 }
 
 .editorial-tag {

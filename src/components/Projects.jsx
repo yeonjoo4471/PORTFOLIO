@@ -200,7 +200,6 @@ const Projects = () => {
       <header className='projects-header'>
         <div className='projects-meta archive-filebar archive-layout'>
           <span>FILE 03 / PROJECTS</span>
-          <span>SELECTED WORKS / 2026</span>
         </div>
 
         <div className='projects-heading'>

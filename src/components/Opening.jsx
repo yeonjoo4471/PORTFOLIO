@@ -15,21 +15,16 @@ export default function Opening({ onComplete }) {
 
   useEffect(() => {
     // Scene timings (total ~7.6s)
-    const t1 = setTimeout(() => setCurrentScene(2), 1400) // Scene 2: DESIGN / CODE / INTERACTION
-    const t2 = setTimeout(() => setCurrentScene(3), 3000) // Scene 3: Mask reveal of Sky / Light
-    const t3 = setTimeout(() => setCurrentScene(4), 4600) // Scene 4: Credits cross
-    const t4 = setTimeout(() => setCurrentScene(5), 6000) // Scene 5: Big Typography
-    const t5 = setTimeout(() => {
-      // Scene 6: Fade out & transition to Hero
-      handleFinish()
-    }, 7600)
+    const t1 = setTimeout(() => setCurrentScene(2), 800) // Scene 2: DESIGN / CODE / INTERACTION
+    const t2 = setTimeout(() => setCurrentScene(4), 2200) // Scene 3: Mask reveal of Sky / Light
+    const t3 = setTimeout(() => setCurrentScene(5), 3300) // Scene 4: Credits cross
+    const t4 = setTimeout(() => handleFinish(), 4400) // Scene 5: Big Typography
 
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)
       clearTimeout(t4)
-      clearTimeout(t5)
     }
   }, [handleFinish])
 
@@ -76,17 +71,7 @@ export default function Opening({ onComplete }) {
         </div>
       )}
 
-      {/* Scene 3: Sky Mask Reveal */}
-      {currentScene === 3 && (
-        <div className="scene-container scene-3-block">
-          <div className="mask-reveal-box">
-            <span className="scene-3-kicker">INTO THE CLEAR SKY</span>
-            <h2 className="scene-3-title font-title">화면으로 이어진 생각과 기록</h2>
-          </div>
-        </div>
-      )}
-
-      {/* Scene 4: Opening Credits Cross */}
+      {/* Scene 3: Opening Credits Cross */}
       {currentScene === 4 && (
         <div className="scene-container scene-4-block">
           <div className="opening-credits-grid">
@@ -96,7 +81,7 @@ export default function Opening({ onComplete }) {
         </div>
       )}
 
-      {/* Scene 5: Main Title Card */}
+      {/* Scene 4: Main Title Card */}
       {currentScene === 5 && (
         <div className="scene-container scene-5-block">
           <span className="main-title-pre">PORTFOLIO</span>

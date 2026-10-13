@@ -243,7 +243,6 @@ export default function Contact() {
       <div className='contact-inner archive-layout'>
         <header className='contact-meta archive-filebar'>
           <p>FILE 05 / CONTACT</p>
-          <p>UNTIL THE NEXT CHAPTER</p>
         </header>
 
         <div className='contact-layout'>

@@ -103,7 +103,6 @@ const About = () => {
     <section ref={aboutRef} id='about' className='about'>
       <header className='about-header archive-filebar archive-layout'>
         <p>FILE 01 / ABOUT</p>
-        <p>MY PERSONAL ARCHIVE</p>
       </header>
 
       <div className='about-layout archive-layout'>

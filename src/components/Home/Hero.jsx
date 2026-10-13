@@ -92,7 +92,6 @@ export default function Hero({isActive=false}) {
       <div className="container hero-container archive-layout">
         <div className="hero-meta-top">
           <span className="hero-spec">FILE 00 / OPENING OVERVIEW</span>
-          <span className="hero-year">2026 ARCHIVE</span>
         </div>
 
         <div className="hero-content">

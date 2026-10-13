@@ -124,7 +124,6 @@ export default function Process() {
       <div className='process-inner archive-layout'>
         <header className='process-meta archive-filebar'>
           <p>FILE 04 / PROCESS</p>
-          <p>MY PERSONAL ARCHIVE</p>
         </header>
 
         <div className='process-layout'>

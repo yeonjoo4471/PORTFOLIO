@@ -123,7 +123,6 @@ export default function Skills() {
         {/* Editorial Section Header */}
         <div className="editorial-header archive-filebar">
           <span className="editorial-tag">FILE 02 / SKILLS</span>
-          <span className="editorial-subtitle">CREATOR SPECIFICATION</span>
         </div>
 
         {/* Section Intro: Typography & Whitespace */}

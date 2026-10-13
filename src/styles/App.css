@@ -187,25 +187,21 @@
 }
 
 .portfolio-start-role {
-  margin: 18px 0 0;
+  margin: 40px 0 0;
   font-size: 14px;
   letter-spacing: 0.18em;
 }
 
 .portfolio-start-button {
-  margin-top: 48px;
+  margin-top: 28px;
   padding: 15px 48px;
-
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
-
   background: transparent;
   color: inherit;
-
   font: inherit;
   font-size: 16px;
   letter-spacing: 0.2em;
-
   cursor: pointer;
   transition:
     background-color 0.2s ease,
@@ -230,7 +226,7 @@
 }
 
 .portfolio-start-note {
-  margin: 18px 0 0;
+  margin: 28px 0 0;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   line-height: 1.6;

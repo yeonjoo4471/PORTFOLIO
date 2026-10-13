@@ -32,7 +32,6 @@
   justify-content: space-between;
   gap: 20px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #dce5ea;
   color: #536471;
   font-size: 0.75rem;
   font-weight: 600;
@@ -46,8 +45,8 @@
 }
 
 .projects-heading h2{
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(64px, min(13vw, 20svh), 200px);
+  font-family: 'M_PLUS', sans-serif;
+  font-size: clamp(64px, min(13vw, 20svh), 160px);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -.055em;
@@ -167,8 +166,8 @@
 
 .project-card-info h3{
   margin-top: 5px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(26px, min(3vw, 5svh), 46px);
+  font-family: 'M_PLUS', sans-serif;
+  font-size: clamp(26px, min(3vw, 5svh), 38px);
   font-weight: 400;
   line-height: 1.1;
   overflow-wrap: anywhere;

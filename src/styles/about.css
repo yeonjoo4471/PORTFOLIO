@@ -27,8 +27,6 @@
   gap: 24px;
   margin-bottom: 48px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #dce5ea;
-  color: #536471;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -54,7 +52,7 @@
 }
 
 .about-title{
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'M_PLUS', sans-serif;
   font-size: clamp(36px, 3.5vw, 52px);
   font-weight: 400;
   line-height: 0.95;

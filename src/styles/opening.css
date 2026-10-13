@@ -298,7 +298,7 @@
 .opening-progress-fill {
   height: 100%;
   background: var(--color-sky-blue);
-  animation: openingProgress 7.6s linear forwards;
+  animation: openingProgress 4.4s linear forwards;
 }
 
 @keyframes openingProgress {
