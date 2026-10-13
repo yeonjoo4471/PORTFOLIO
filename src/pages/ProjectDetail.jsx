@@ -1,4 +1,4 @@
-import { Link, useParams, useLocation } from 'react-router'
+import { Link, useParams } from 'react-router'
 import { projects } from '../data/projects.js'
 import NotFound from './NotFound.jsx'
 

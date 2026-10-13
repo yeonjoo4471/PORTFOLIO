@@ -35,6 +35,8 @@ export default function Header() {
     window.history.replaceState(
       window.history.state, '', `${window.location.pathname}${window.location.search}`,
     )
+
+    setMobileMenuOpen(false)
   }
 
   return (

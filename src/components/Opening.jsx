@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
 import skyCloudImg from '../assets/images/opening/atmosphere/sky-cloud.png'
-import lightWindImg from '../assets/images/opening/atmosphere/light-wind.png'
 import '../styles/opening.css'
 
 export default function Opening({ onComplete }) {
@@ -50,7 +49,6 @@ export default function Opening({ onComplete }) {
       {/* Background Visuals for Scenes 3+ */}
       <div className={`opening-visual-bg scene-${currentScene}`} aria-hidden="true">
         <img src={skyCloudImg} alt="" className="opening-bg-sky" />
-        {/* <img src={lightWindImg} alt="" className="opening-bg-wind" /> */}
         <div className="opening-bg-vignette"></div>
       </div>
 

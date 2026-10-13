@@ -61,7 +61,7 @@ const skillCategories = [
       { name: 'Figma', desc: '컴포넌트 시스템, 오토레이아웃 및 프로토타이핑' },
       { name: 'Photoshop & Illustrator', desc: '에셋 가공, 그래픽 리터칭 및 벡터 디자인' },
       { name: 'Git & GitHub', desc: '버전 관리, 브랜치 전략 및 배포 워크플로우' },
-      { name: 'AI Assisted Coding', desc: 'Claude / ChatGPT 기반 효율적인 바이브 코딩' },
+      { name: 'AI Assisted Coding', desc: 'AI 도구를 활용한 코드 작성 · 검토 및 작업 효율화' },
     ]
   }
 ]
