@@ -198,7 +198,6 @@ export default function Process() {
 
         <footer className='process-footer'>
           <p>FROM AN IDEA TO A SCREEN</p>
-          <p>LEE YEON JOO / 2026</p>
         </footer>
       </div>
     </section>

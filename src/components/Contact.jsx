@@ -392,7 +392,6 @@ export default function Contact() {
         </div>
 
         <footer className='contact-footer'>
-          <p>© 2026 LEE YEON JOO</p>
 
           <button
             type='button'
