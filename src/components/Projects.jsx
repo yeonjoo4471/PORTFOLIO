@@ -15,6 +15,7 @@ import cineopsCover from '../assets/images/projects/cineops/project-cover.png'
 import animeGoodsCover from '../assets/images/projects/anime-goods/project-cover.png'
 import switchLiteDetailCover from '../assets/images/projects/switch-lite-detail/project-cover.png'
 import nespressoDetailCover from '../assets/images/projects/nespresso-vertuo-up/project-cover.png'
+import japanSnsCover from '../assets/images/projects/japan-travel-sns/project-cover.png'
 
 import 'swiper/css'
 import '../styles/projects.css'
@@ -91,6 +92,13 @@ const projects = [
     title: 'VERTUO UP',
     description: '취향에 맞는 커피 경험을 담은 제품 상세페이지',
     image: nespressoDetailCover,
+  },
+  {
+    id: 'japan-travel-sns',
+    slug: 'japan-travel-sns',
+    title: 'JAPAN TRAVEL',
+    description: '일본 소도시 감성 여행 SNS 디자인',
+    image: japanSnsCover,
   },
 ]
 

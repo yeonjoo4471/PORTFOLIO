@@ -183,7 +183,7 @@ export default function Skills() {
           <div className="annotation-col">
             <span className="annotation-tag">ANNOTATION</span>
             <span className="annotation-text">
-              모든 스킬은 실제 제작된 10개의 프로젝트를 통해 구현 및 검증되었습니다.
+              웹 구현부터 앱과 콘텐츠 디자인까지, 프로젝트별 작업 내용은 아래에서 확인할 수 있습니다.
             </span>
           </div>
           <div className="tools-mini-icons" aria-label="사용 도구 아이콘 모음">

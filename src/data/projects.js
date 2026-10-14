@@ -94,6 +94,13 @@ import nespressoSizes from '../assets/images/projects/nespresso-vertuo-up/detail
 import nespressoSmart from '../assets/images/projects/nespresso-vertuo-up/detail/smart-experience.png'
 import nespressoPurchase from '../assets/images/projects/nespresso-vertuo-up/detail/purchase.png'
 
+import japanSnsCover from '../assets/images/projects/japan-travel-sns/project-cover.png'
+import japanSnsOverview from '../assets/images/projects/japan-travel-sns/detail/overview.png'
+import japanSnsFeedCover from '../assets/images/projects/japan-travel-sns/detail/feed-cover.png'
+import japanSnsKamakura from '../assets/images/projects/japan-travel-sns/detail/feed-kamakura.png'
+import japanSnsHakodate from '../assets/images/projects/japan-travel-sns/detail/feed-hakodate.png'
+import japanSnsStory from '../assets/images/projects/japan-travel-sns/detail/story.png'
+
 export const projects = [
   {
     slug: 'touslesjours',
@@ -1180,6 +1187,81 @@ export const projects = [
         label: 'RESULT',
         title: '기능과 감성이 균형을 이루는 상세페이지',
         description: '제품의 기술적인 장점을 어렵게 설명하기보다 매일 마시는 커피가 얼마나 빠르고 편리해질 수 있는지를 중심으로 풀어냈습니다. 따뜻한 라이프스타일 이미지와 명확한 정보 구조를 결합해 브랜드의 감성과 제품의 설득력을 함께 전달했습니다.',
+      },
+    ],
+  },
+
+  {
+    slug: 'japan-travel-sns',
+    type: 'graphic',
+    title: 'JAPAN TRAVEL',
+    subtitle: 'Small Town Travel SNS Design',
+    category: 'SNS DESIGN · CONTENT DESIGN',
+    year: '2026',
+    heroImage: japanSnsOverview,
+    thumbnail: japanSnsCover,
+    summary: '일본 소도시의 풍경과 여행 정보를 함께 전달하는 SNS 콘텐츠 디자인입니다. 피드 표지와 도시별 소개 카드, 스토리를 하나의 분위기로 구성했습니다.',
+    role: 'CONTENT PLANNING · SNS DESIGN',
+    period: '2026-10-12',
+    contribution: 'PERSONAL PROJECT · 100%',
+    tools: ['Figma'],
+    liveUrl: 'https://www.figma.com/design/L5jBvRsWNyQmMO9Dg9cQj0/YEON-JOO?node-id=0-1&p=f&t=JyEGubhfZ3bRVsF4-0',
+    liveLabel: 'VIEW FIGMA',
+    githubUrl: '',
+    sections: [
+      {
+        id: 'overview',
+        number: '01',
+        label: 'OVERVIEW',
+        title: '사진으로 전하는 일본 소도시의 분위기',
+        description: '일본 소도시 여행을 주제로 각 도시의 풍경과 특징을 소개하는 SNS 콘텐츠를 제작했습니다. 사진으로 여행의 분위기를 전달하고, 도시 이름과 짧은 소개로 핵심 정보를 확인할 수 있도록 구성했습니다.',
+      },
+      {
+        id: 'feed-cover',
+        number: '02',
+        label: 'FEED COVER',
+        title: '여행의 분위기를 담은 첫 장',
+        description: '골목과 바다가 함께 보이는 사진을 배경으로 사용하고, 여백이 있는 위치에 제목을 배치했습니다. 푸른색 제목과 분홍색 손글씨 포인트를 더해 차분하면서도 따뜻한 여행의 분위기를 표현했습니다.',
+        image: japanSnsFeedCover,
+        alt: '일본 소도시 감성 여행 SNS 피드 표지',
+        layout: 'visual',
+      },
+      {
+        id: 'feed-design',
+        number: '03',
+        label: 'FEED DESIGN',
+        title: '같은 구성 안에서 달라지는 도시의 매력',
+        description: '도시별 피드는 상단의 풍경 사진과 하단의 정보 영역으로 구분했습니다. 도시 이름과 소개, 여행 키워드의 위치를 일정하게 유지해 여러 장을 넘겨보아도 내용을 쉽게 파악할 수 있도록 했습니다. 대표 이미지로 가마쿠라의 바다와 열차, 하코다테의 야경을 소개합니다.',
+        images: [
+          {
+            src: japanSnsKamakura,
+            alt: '바다와 열차 사진을 활용한 가마쿠라 여행 피드',
+            label: 'KAMAKURA',
+          },
+          {
+            src: japanSnsHakodate,
+            alt: '푸른 밤의 야경을 활용한 하코다테 여행 피드',
+            label: 'HAKODATE',
+          },
+        ],
+        layout: 'responsive',
+      },
+      {
+        id: 'story-design',
+        number: '04',
+        label: 'STORY DESIGN',
+        title: '세로 화면에 담은 여행 기록',
+        description: '스토리는 세로 화면의 비율에 맞춰 사진과 문구를 다시 배치했습니다. 종이와 폴라로이드 사진을 겹친 듯한 구성으로 여행 기록의 느낌을 살리고, 피드와 같은 색상과 글꼴을 사용해 시리즈의 분위기를 유지했습니다.',
+        image: japanSnsStory,
+        alt: '폴라로이드 사진과 종이 질감을 활용한 일본 소도시 여행 스토리',
+        layout: 'visual',
+      },
+      {
+        id: 'result',
+        number: '05',
+        label: 'RESULT',
+        title: '피드에서 스토리까지 이어지는 여행 콘텐츠',
+        description: '표지에서는 여행의 분위기를, 내용 피드에서는 도시별 정보를, 스토리에서는 주요 이미지를 모아 보여주었습니다. 형식에 따라 배치를 달리하면서도 사진과 색상, 글꼴을 통일해 하나의 SNS 콘텐츠 시리즈를 완성했습니다. 전체 디자인은 피그마에서 확인할 수 있습니다.',
       },
     ],
   },
